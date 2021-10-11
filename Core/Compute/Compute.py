@@ -110,7 +110,7 @@ def FilterCompliantPBI(NonCompliant):
         ['Subnet', 'DenyInbound'],
         ['SQLServer', 'Public'],
         ['Function', 'TLSVersion'],
-        ['RBAC', 'CertifiedUser'], ['RBAC', 'NotNull'],['Databricks', 'PublicIP'],]
+        ['RBAC', 'CertifiedUser'], ['RBAC', 'NotNull'],]
     
     for Unwanted in PowerBIUnwantedNonCompliants:
         NonCompliant.drop(NonCompliant[(NonCompliant.ResourceType == Unwanted[0]) & (NonCompliant.NonCompliant == Unwanted[1])].index, inplace=True)
@@ -135,7 +135,7 @@ def compute_task():
 
     logging.info('-output results')
     start_time = time.time()
-    DetailedPBI = SortDetailedPBI(Detailed.copy(deep=True),['DataBricks:NoPublicIP:Total'])
+    DetailedPBI = SortDetailedPBI(Detailed.copy(deep=True),[])
     outputresult(container_client_output, blob_service_client_output, 'DetailedFull', 'csv', cur_date, Detailed, split=False)
     outputresult(container_client_output, blob_service_client_output, 'DetailedFull', 'json', cur_date, Detailed, split=False)
     outputresult(container_client_output, blob_service_client_output, 'Detailed', 'csv', cur_date, DetailedPBI, split=False)
