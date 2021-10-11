@@ -136,6 +136,7 @@ def compute_task():
     logging.info('-output results')
     start_time = time.time()
     DetailedPBI = SortDetailedPBI(Detailed.copy(deep=True),[])
+    #test
     outputresult(container_client_output, blob_service_client_output, 'DetailedFull', 'csv', cur_date, Detailed, split=False)
     outputresult(container_client_output, blob_service_client_output, 'DetailedFull', 'json', cur_date, Detailed, split=False)
     outputresult(container_client_output, blob_service_client_output, 'Detailed', 'csv', cur_date, DetailedPBI, split=False)
