@@ -4,7 +4,7 @@ from ..Compute import *
 from ..Merge import *
 import os
 import time
-#test
+
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
