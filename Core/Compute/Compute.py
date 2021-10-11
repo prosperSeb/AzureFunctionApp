@@ -152,3 +152,4 @@ def compute_task():
     RBACExport(blob_service_client_output, container_client_input)
     end_time = time.time()
     logging.info("-Time consumed in output results: " + str(end_time - start_time))
+    #test
