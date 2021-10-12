@@ -8,7 +8,7 @@ $aaRG   = "Discovery-v2.3-Fix"
 
 Set-AzContext -Subscription $subid
 
-$scriptPath = @("C:\prospersebille\AutomationDiscoveryV2\Core")
+$scriptPath = @("/Core")
 
 foreach ($s in $scriptPath){
 
