@@ -22,6 +22,7 @@ foreach ($aa in $aaList){
                             -ResourceGroupName $aaRG `
                             -Path $ps.FullName `
                             -Published `
+                            -Type PowerShell `
                             -LogProgress $true `
                             -Force
     }   
