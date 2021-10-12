@@ -2,13 +2,13 @@
 #Connect-AzAccount -UseDeviceAuthentication
 
 #Param
-$subid  = "56cc00c5-1664-49d1-b42c-0ac9a9770e56"
-$aaName = "AA-Discovery"
-$aaRG   = "Discovery-v2"
+$subid  = "4f975edb-da7f-4245-84a3-c1c97b8b9ef3"
+$aaName = "AA-Discovery-01-Fix"
+$aaRG   = "Discovery-v2.3-Fix"
 
 Set-AzContext -Subscription $subid
 
-$scriptPath = @("C:\Engie-Git\Discovery-v2\Core","C:\Engie-Git\Discovery-v2\Feature")
+$scriptPath = @("C:\prospersebille\AutomationDiscoveryV2\Core")
 
 foreach ($s in $scriptPath){
 
