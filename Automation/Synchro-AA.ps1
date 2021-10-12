@@ -18,12 +18,10 @@ foreach ($aa in $aaList){
     $psScript = Get-ChildItem -path $s *.ps1
     
     foreach ($ps in $psScript) {
-        Import-AzAutomationRunbook -AutomationAccountName $aa `
+        Import-AzAutomationRunbook -AutomationAccountName $aa.AutomationAccountName `
                             -ResourceGroupName $aaRG `
-                            -Name $(($ps.name).TrimEnd('.ps1')) `
                             -Path $ps.FullName `
                             -Published `
-                            -Type PowerShell `
                             -LogProgress $true `
                             -Force
     }   
