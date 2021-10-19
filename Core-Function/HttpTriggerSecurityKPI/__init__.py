@@ -1,25 +1,24 @@
 import logging
+
 import azure.functions as func
-from ..Compute import *
-from ..Merge import *
-import os
-import time
+
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
-#     logging.getLogger('azure').setLevel(logging.WARNING)
 
-    start_merge_task_time = time.time()
-    logging.info("start_merge_task")
-    start_merge_task()
-    compute_task_time = time.time()
-    logging.info("Time consumed in merge: " + str(compute_task_time - start_merge_task_time))
-    logging.info("compute_task")
-    compute_task()
-    end_time = time.time()
-    logging.info("Time consumed in compute: " + str(end_time - compute_task_time))
+    name = req.params.get('name')
+    if not name:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            name = req_body.get('name')
 
-    return func.HttpResponse(
-            "Done",
-            status_code=200
-    )
+    if name:
+        return func.HttpResponse(f"Hello, {name}. This HTTP triggered function executed successfully.")
+    else:
+        return func.HttpResponse(
+             "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.",
+             status_code=200
+        )
