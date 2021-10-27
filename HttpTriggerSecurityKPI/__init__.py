@@ -7,7 +7,7 @@ import time
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
-#test
+
     start_merge_task_time = time.time()
     logging.info("start_merge_task")
     start_merge_task()
